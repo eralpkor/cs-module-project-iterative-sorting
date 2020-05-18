@@ -38,6 +38,7 @@ def swap(arr, index1, index2):
 def bubble_sort(arr):
     # no_swaps = None
     for i in range(0, len(arr) - 1):
+        # create a stopper var
         no_swaps = True
         for j in range(0, len(arr) - i - 1):
             # print(arr, arr[j], arr[j + 1])
@@ -47,6 +48,7 @@ def bubble_sort(arr):
                 arr[j] = arr[j + 1]
                 arr[j + 1] = temp
                 no_swaps = False
+        # if no more swaps exit the loop
         if no_swaps:
             break
     return arr
