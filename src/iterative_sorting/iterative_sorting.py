@@ -22,12 +22,33 @@ def selection_sort(arr):
         
     return arr
 
-            
+# def swap2(arr, idx1, idx2):
+#     return arr[idx1], arr[idx2] = arr[idx2], arr[idx1]
+# swap indexes            
+def swap(arr, index1, index2):
+    temp = arr[index1]
+    arr[index1] = arr[index2]
+    arr[index2] = temp
 # TO-DO:  implement the Bubble Sort function below
+# Where the largest values bubble up to the top! to the end
+# 1. Start looping from 
+# 2. Inner loop with j from the begining until i - 1
+# 3. If arr[j] is greater than arr[j+1], swap those two values!
+# 4. Return sorted array
 def bubble_sort(arr):
-    # Your code here
-
-
+    # no_swaps = None
+    for i in range(0, len(arr) - 1):
+        no_swaps = True
+        for j in range(0, len(arr) - i - 1):
+            # print(arr, arr[j], arr[j + 1])
+            if arr[j] > arr[j + 1]:
+                # swap
+                temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = temp
+                no_swaps = False
+        if no_swaps:
+            break
     return arr
 
 
@@ -38,4 +59,6 @@ def count_sort(arr, maximum=-1):
 
     return arr
 
-print(selection_sort([0, 2, 34, 22, 10, 19, 17]))
+# print('Selection sort: ', selection_sort([0, 2, 34, 22, 10, 19, 17]))
+print('Bubble sort: ', bubble_sort([27, 45, 29, 8]))
+print('Bubble sort: ', bubble_sort([8, 1, 2, 3, 4, 5, 6, 7]))
