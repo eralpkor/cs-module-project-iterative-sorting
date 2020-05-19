@@ -36,9 +36,9 @@ def swap(arr, index1, index2):
 # 3. If arr[j] is greater than arr[j+1], swap those two values!
 # 4. Return sorted array
 def bubble_sort(arr):
-    # no_swaps = None
     for i in range(0, len(arr) - 1):
         # create a stopper var
+        # optimized with no_swap
         no_swaps = True
         for j in range(0, len(arr) - i - 1):
             # print(arr, arr[j], arr[j + 1])
