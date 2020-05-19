@@ -22,13 +22,7 @@ def selection_sort(arr):
         
     return arr
 
-# def swap2(arr, idx1, idx2):
-#     return arr[idx1], arr[idx2] = arr[idx2], arr[idx1]
-# swap indexes            
-def swap(arr, index1, index2):
-    temp = arr[index1]
-    arr[index1] = arr[index2]
-    arr[index2] = temp
+
 # TO-DO:  implement the Bubble Sort function below
 # Where the largest values bubble up to the top! to the end
 # 1. Start looping from 
@@ -55,10 +49,33 @@ def bubble_sort(arr):
 
 
 # STRETCH: implement the Count Sort function below
+# Requires to know the "max" value the we'll be sorting
+# def count_sort(arr, maximum=-1):
+#     # Your code here
+
+
+#     return arr
 def count_sort(arr, maximum=-1):
-    # Your code here
-
-
+    #if arr empty
+    if len(arr) == 0:
+        return arr
+    # if max isnt given
+    if maximum == -1:
+        maximum = max(arr)
+    # make a bunch of buckets (enough for each value 0 - max)
+    buckets = [0 for _ in range(maximum + 1)] # [0] * maximum + 1 maybe
+    for x in arr:
+        if x < 0:
+            return "Error, negative numbers not allowed in Count Sort"
+        buckets[x] +=1
+    # now we have the counts of every value in array
+    # loop through our buckets starting at the smallest index
+    j = 0
+    for i in range(len(buckets)):
+        while buckets[i] > 0:
+            arr[j] = i
+            j += 1
+            buckets[i] -= 1
     return arr
 
 # print('Selection sort: ', selection_sort([0, 2, 34, 22, 10, 19, 17]))
